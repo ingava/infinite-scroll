@@ -21,7 +21,7 @@ var view = (function () {
         })
     };
 
-    var setStatus = function (url, id, boolean) {
+    var postStatus = function (url, id, boolean) {
         service.postStatus(url, id, boolean);
     };
 
@@ -45,14 +45,12 @@ var view = (function () {
             //posting to fake server for testing
 
             if (element.classList.contains('liked')) {
-                setStatus('http://httpbin.org/post', id, true);
+                postStatus('http://httpbin.org/post', id, true);
             } else {
-                setStatus('http://httpbin.org/post', id, false);
+                postStatus('http://httpbin.org/post', id, false);
             }
         }
-    }
-
-
+    };
     
     var addScrollListener = function () {
 

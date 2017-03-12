@@ -40,27 +40,6 @@ var service = (function () {
         });
     };
 
-    var removeFavourite = function (url, id) {
-
-        var params = {id: id, isFavourite: false};
-        return new Promise(function(resolve, reject){
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", url, true);
-            xhttp.onload = function(){
-                if (xhttp.status == 200) {
-                    resolve(JSON.parse(xhttp.response));
-                } else {
-                    reject(xhttp.statusText);
-                }
-            };
-            xhttp.onerror = function(){
-                reject(xhttp.statusText);
-            };
-            xhttp.setRequestHeader("Content-Type", "application/json");
-            xhttp.send(JSON.stringify(params));
-        });
-    };
-
     var getDistanceToBottom = function() {
 
         var scrollPosition = window.pageYOffset;
@@ -68,7 +47,6 @@ var service = (function () {
         var bodyHeight     = document.body.offsetHeight;
 
         return Math.max(bodyHeight - (scrollPosition + windowSize), 0);
-
     };
 
     return {
