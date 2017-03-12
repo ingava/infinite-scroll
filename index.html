@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>Dribbble Viewer</title>
     <link rel="stylesheet" href="src/css/normalize.css">
     <link rel="stylesheet" href="src/css/styles.css">
@@ -11,6 +12,10 @@
         <template id="shot-template">
             <div class="shot-wrapper">
                 <img class="shot">
+                <div class="overlay"></div>
+                <div class="button-wrapper">
+                    <button class="favourite-button">Favourite</button>
+                </div>
             </div>
         </template>
     </div>

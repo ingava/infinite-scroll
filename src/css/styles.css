@@ -1,19 +1,19 @@
 .main-container {
     display: -webkit-flex;
     display: flex;
-    /*-webkit-flex-direction: row;*/
-    /*flex-direction: row;*/
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     background-color: rgb(232, 232, 232);
+    position: relative;
     margin-right: -1.5em;
 }
 
 .shot-wrapper {
-    max-height: 350px;
-    max-width: 450px;
+    position: relative;
+    height: auto;
+    width: 31%;
     margin-top: 1.5em;
     margin-right: 1.5em;
 }
@@ -23,3 +23,120 @@
     height: 100%;
     border-radius: 10px;
 }
+
+.button-wrapper {
+    position: absolute;
+    width: 100%;
+    left:0;
+    top: 70%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.favourite-button {
+    width: 150px;
+    text-align: center;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    border-radius: 30px;
+    color: white;
+    font-size: 1em;
+    background-color: transparent;
+    border: solid 2px white;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+}
+
+.shot-wrapper:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+}
+
+.shot-wrapper:hover .button-wrapper {
+    opacity: 1;
+}
+
+.liked {
+    background-color: darkgray;
+}
+
+/* to make outline less visible */
+
+.favourite-button:focus {
+    outline: dotted 1px darkgrey;
+}
+
+
+/************* Media queries *******************/
+
+/* small PC screens, laptops */
+
+@media (min-width: 769px) and (max-width: 1028px) {
+
+    .main-container {
+        margin: 0;
+    }
+
+    .shot-wrapper {
+        width: 45%;
+    }
+}
+
+/* Small devices, tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .shot-wrapper {
+        width: 45%;
+    }
+
+    .button-wrapper {
+        width: 100%;
+        opacity: 1;
+    }
+
+    .overlay {
+        visibility: hidden;
+    }
+
+    .main-container {
+        margin: 0;
+    }
+}
+
+/* Extra Small Devices, Phones */
+
+@media (max-width: 480px) {
+
+    .main-container {
+        margin: 0;
+    }
+
+    .shot-wrapper {
+        width: 100%;
+        margin-right: 0;
+    }
+    .button-wrapper {
+        width: 100%;
+        opacity: 1;
+
+    }
+    .overlay {
+        visibility: hidden;
+    }
+}
+
+
